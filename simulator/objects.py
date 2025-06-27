@@ -35,7 +35,7 @@ class GaussianDistribution(Distribution):
 # 这个类 Node 表示网格中的一个节点，具有多个属性和方法，主要用于管理该节点的订单和驾驶员信息。它涉及到订单的生成、分配、驾驶员的管理等操作，常用于模拟和调度任务。
 class Node(object):
     __slots__ = ('neighbors', '_index', 'orders', 'drivers',
-                 'order_num', 'idle_driver_num', 'offline_driver_num'
+                 'order_num', 'idle_driver_num', 'offline_driver_num',
                  'order_generator', 'offline_driver_num', 'order_generator',
                  'n_side', 'layers_neighbors', 'layers_neighbors_id')
     '''
@@ -269,7 +269,7 @@ class Node(object):
         """Randomly get one driver"""
         assert self.idle_driver_num > 0   # 确保有至少一个闲置驾驶员
         get_driver_id = 0                 # 初始化变量，暂时用 0 存储选中的驾驶员 ID
-        for key in self.drivers.iterkeys():    # 遍历当前节点的所有驾驶员 ID
+        for key in self.drivers.keys():    # 遍历当前节点的所有驾驶员 ID
             get_driver_id = key               # 将第一个找到的驾驶员 ID 赋值给 `get_driver_id`
             break                            # 跳出循环（只选择第一个驾驶员）
         return self.drivers[get_driver_id]       # 返回所选驾驶员的对象，self.drivers 字典存储了所有驾驶员，self.drivers[get_driver_id] 返回与该 ID 对应的驾驶员对象。
