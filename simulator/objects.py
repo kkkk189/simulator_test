@@ -36,7 +36,7 @@ class GaussianDistribution(Distribution):
 class Node(object):
     __slots__ = ('neighbors', '_index', 'orders', 'drivers',
                  'order_num', 'idle_driver_num', 'offline_driver_num',
-                 'order_generator', 'offline_driver_num', 'order_generator',
+                 'order_generator', 
                  'n_side', 'layers_neighbors', 'layers_neighbors_id')
     '''
     这行代码定义了 Node 类实例的属性，限制了实例只能拥有这些属性：
